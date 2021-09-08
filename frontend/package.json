@@ -1,0 +1,26 @@
+{
+    "name": "frontend",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "run-s build::prepare build::build build::moveindex build:clean",
+        "serve": "vite preview",
+        "build:prepare": "del ../django_vitevue_example/static/frontend/assets/* ../django_vitevue_example/templates/index.html --force",
+        "build:build": "vite build --base=/static/frontend/",
+        "build:moveindex": "move-file ../django_vitevue_example/static/frontend/index.html ../django_vitevue_example/templates/index.html",
+        "build:clean": "del ./dist"
+    },
+    "dependencies": {
+        "vue": "^3.2.6"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^1.6.1",
+        "@vue/compiler-sfc": "^3.2.6",
+        "del-cli": "^4.0.1",
+        "move-file-cli": "^3.0.0",
+        "npm-run-all": "^4.1.5",
+        "typescript": "^4.3.2",
+        "vite": "^2.5.4",
+        "vue-tsc": "^0.2.2"
+    }
+}
