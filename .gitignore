@@ -5,9 +5,11 @@
 .settings
 .vscode
 yarn.lock
-
+bin
+pyvenv.cfg
 __pycache__/
 *.py[cod]
+django_vitevue_example/vv
 
 # C extensions
 *.so
