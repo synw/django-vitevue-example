@@ -9,7 +9,6 @@ bin
 pyvenv.cfg
 __pycache__/
 *.py[cod]
-django_vitevue_example/vv
 
 # C extensions
 *.so
@@ -58,5 +57,6 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-# PyBuilder
-
+django_vitevue_example/vv
+django_vitevue_example/templates/index.html
+django_vitevue_example/static/frontend/*
