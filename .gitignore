@@ -53,6 +53,8 @@ coverage.xml
 
 /frontend
 /partialapp
+**/static/frontend
+**/templates/index.html
 
 # Django stuff:
 *.log
