@@ -3,8 +3,19 @@ from django.db import models
 SIDE = [("buy", "buy"), ("sell", "sell")]
 
 
+class Agent(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class Market(models.Model):
     name = models.CharField(max_length=255)
+    agents = models.ManyToManyField(Agent, blank=True, related_name="markets")
+    maker = models.ForeignKey(
+        Agent, null=True, blank=True, on_delete=models.SET_NULL, related_name="market"
+    )
 
     def __str__(self) -> str:
         return self.name
