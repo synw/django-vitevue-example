@@ -55,6 +55,7 @@ coverage.xml
 /partialapp
 **/static/frontend
 **/templates/index.html
+**/localsettings.py
 
 # Django stuff:
 *.log
