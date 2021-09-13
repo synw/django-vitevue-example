@@ -55,7 +55,7 @@ Now let's write the compilation config and commands to
 the `frontend/vite.config.ts` and `frontend/package.json` files:
 
 ```
-python django_vitevue_example/manage.py viteconf -w frontend
+python django_vitevue_example/manage.py viteconf -w
 ```
 
 By default the compilation will output an `index.html` template and put the
@@ -89,21 +89,8 @@ python django_vitevue_example/manage.py runserver
 On `/` a regular Django template is served. The generated index template is
 served on the `/spa/` url
 
-## Included app
-
-Now we will create a frontend to be compiled to a specific Django template
-as a partial app. Create the app:
+### Generate Typescript models from the backend models
 
 ```
-yarn create vite partialapp --template=vue-ts
-cd frontend
-yarn install
-yarn add -D move-file-cli del-cli npm-run-all
-cd ..
-```
-
-Create a `django_vitevue_example/localsettings.py` file and add this config:
-
-```
-
+python django_vitevue_example/manage.py tsmodels trades
 ```
