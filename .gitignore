@@ -51,6 +51,9 @@ nosetests.xml
 coverage.xml
 *,cover
 
+/frontend
+/partialapp
+
 # Django stuff:
 *.log
 
