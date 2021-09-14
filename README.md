@@ -92,5 +92,31 @@ served on the `/spa/` url
 ### Generate Typescript models from the backend models
 
 ```
-python django_vitevue_example/manage.py tsmodels trades
+python django_vitevue_example/manage.py tsmodels trades -w
 ```
+
+Generate an api for the models:
+
+```
+python django_vitevue_example/manage.py tsapi trades -w
+```
+
+## Included app
+
+Now we will create a frontend to be compiled to a specific Django template
+as a partial app. Create the app:
+
+```
+yarn create vite partialapp --template=vue-ts
+cd partialapp
+yarn install
+yarn add -D move-file-cli del-cli npm-run-all
+cd ..
+```
+
+Generate a Vite config in partial template mode:
+
+```
+python django_vitevue_example/manage.py viteconf --app=partialapp -p -w
+```
+
