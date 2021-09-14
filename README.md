@@ -78,7 +78,7 @@ yarn build
 
 This creates the template and static files
 
-### Server the generated frontend build
+### Serve the generated frontend build
 
 Run the dev server:
 
