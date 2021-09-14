@@ -53,8 +53,10 @@ coverage.xml
 
 /frontend
 /partialapp
+**/static/partialapp
 **/static/frontend
 **/templates/index.html
+**/templates/partialapp.html
 **/localsettings.py
 
 # Django stuff:
@@ -66,3 +68,4 @@ docs/_build/
 django_vitevue_example/vv
 django_vitevue_example/templates/index.html
 django_vitevue_example/static/frontend/*
+/cleanup
