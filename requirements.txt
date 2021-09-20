@@ -1,2 +1,2 @@
 Django==3.2.7
-django-introspection==0.6.0
+django-vitevue==0.4.0
