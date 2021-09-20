@@ -11,6 +11,7 @@ available:
 Clone and cd in the repository dir to install:
 
 ```
+pip install -r requirements.txt
 python django_vitevue_example/manage.py migrate
 ```
 
