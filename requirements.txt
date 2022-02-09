@@ -1,3 +1,4 @@
 Django>=4.0.0
 django-vitevue==0.7.0
 django-cors-headers==3.7.0
+django-ninja==0.17.0
