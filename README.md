@@ -8,7 +8,7 @@ available:
 
 ## Install
 
-Clone and cd in the repository dir to install:
+Clone and cd in the repository dir and create a virtualenv. Then install:
 
 ```
 pip install -r requirements.txt
@@ -60,32 +60,33 @@ python django_vitevue_example/manage.py viteconf -w
 ```
 
 By default the compilation will output an `index.html` template and put the
-static assets in `static/frontend`
+static assets in `static/frontend`. See the django-vitevue doc for more options
 
 ### Build the frontend
 
-Run the Vitejs frontend dev server as usual:
+At this stage we have a Vue frontend running in dev mode. Run the Vitejs frontend dev server:
 
 ```
 cd frontend
 yarn dev
 ```
 
-To build the frontend:
+Check localhost:3000 to see the frontend in dev mode. Run the backend and open localhost:8000/spa/:
 
 ```
+cd ..
+python django_vitevue_example/manage.py runserver
+```
+
+You will see a missing template error because we have not yet compiled the
+frontend to a template and static files. To build the frontend:
+
+```
+cd frontend
 yarn build
 ```
 
-This creates the template and static files
-
-### Serve the generated frontend build
-
-Run the dev server:
-
-```
-python django_vitevue_example/manage.py runserver
-```
+This creates the template and static files. Reload the page at localhost:8000/spa/
 
 On `/` a regular Django template is served. The generated index template is
 served on the `/spa/` url
@@ -99,12 +100,33 @@ python django_vitevue_example/manage.py tsmodels trades -w
 Generate an api for the models:
 
 ```
-python django_vitevue_example/manage.py tsapi trades -w
+python django_vitevue_example/manage.py tsapi trades
 ```
+
+Check the frontend directory: some models has been created from the Django
+backend models, and an api helper has been added
+
+Copy the frontend demo using a management command and install the js dependencies:
+
+```
+python django_vitevue_example/manage.py copydemo
+cd frontend
+yarn add js-cookie @snowind/api
+```
+
+To test the api create a user, run the backend and open the demo with the frontend dev server:
+
+```
+python django_vitevue_example/manage.py createsuperuser
+cd frontend
+yarn dev
+```
+
+And open localhost:3000. This will show a login/logout demo and a sample api call
 
 ## Included app
 
-Now we will create a frontend to be compiled to a specific Django template
+This is to create a frontend to be compiled to a specific Django template
 as a partial app. Create the app:
 
 ```
@@ -120,4 +142,14 @@ Generate a Vite config in partial template mode:
 ```
 python django_vitevue_example/manage.py viteconf --app=partialapp -p -w
 ```
+
+Build the frontend:
+
+```
+python django_vitevue_example/manage.py createsuperuser
+cd partialapp
+yarn build
+```
+
+This will create a `partialapp.html` template that can be included in the main template
 
