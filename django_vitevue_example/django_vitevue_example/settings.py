@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "vv",
+    "django_vitevue_example",
     "trades",
 ]
 
