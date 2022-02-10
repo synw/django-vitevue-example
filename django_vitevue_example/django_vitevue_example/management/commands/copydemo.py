@@ -17,12 +17,14 @@ class Command(BaseCommand):
             return
         # get the settings
         manager = VvConfManager()
-        print("Manager conf", manager.conf)
+        # print("Manager conf", manager.conf)
         file_to_copy = manager.conf.staticfiles_dir / "demo/App.vue"
-        print("FILE", file_to_copy)
+        # print("FILE", file_to_copy)
         destination = manager.conf.vv_base_dir / "frontend/src"
-        print("DEST", destination)
+        # print("DEST", destination)
         os.remove(destination / "App.vue")
         copy(file_to_copy, destination)
         print("Demo frontend app copied")
-        return
+        print("Install the dependencies in the frontend:")
+        print("yarn add js-cookie @snowind/api")
+        print("or npm install js-cookie @snowind/api")
